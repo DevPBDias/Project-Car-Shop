@@ -2,18 +2,12 @@ import { Request, Response } from 'express';
 import { IService } from '../interfaces/IService';
 import { ICar } from '../interfaces/ICar';
 
-export default class FrameController {
+export default class CarController {
   constructor(private _service: IService<ICar>) { }
 
   public async create(req: Request, res: Response) {
     const car = req.body;
-    if (!car) {
-      return res.status(400).json({ message: 'Obj empty' });
-    }
     const created = await this._service.create(car);
-    if (!created) {
-      return res.status(400).json({ message: 'Obj null' });
-    }
     return res.status(201).json(created);
   }
 
