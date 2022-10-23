@@ -1,6 +1,7 @@
 export enum ErrorTypes {
   ObjectNotFound = 'ObjectNotFound',
   InvalidMongoId = 'InvalidMongoId',
+  Undefined = 'Undefined',
 }
   
   type ErrorResponseObject = { 
@@ -17,6 +18,10 @@ export const errorCatalog: ErrorCatalog = {
   },
   InvalidMongoId: {
     error: 'Id must have 24 hexadecimal characters',
+    httpStatus: 400,
+  },
+  Undefined: {
+    error: 'Elements not found',
     httpStatus: 400,
   },
 };

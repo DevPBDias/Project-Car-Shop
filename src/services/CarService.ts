@@ -19,7 +19,9 @@ class CarService implements IService<ICar> {
   }
 
   public async read(): Promise<ICar[]> {
-    return this._car.read();
+    const cars = await this._car.read();
+    if (!cars) throw new Error(ErrorTypes.Undefined);
+    return cars;
   }
   
   public async readOne(_id:string):Promise<ICar> {
