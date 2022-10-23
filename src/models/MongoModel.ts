@@ -27,7 +27,7 @@ abstract class MongoModel<T> implements IModel<T> {
     if (!isValidObjectId(_id)) throw Error(ErrorTypes.InvalidMongoId);
     
     const document = await this._model
-      .findByIdAndUpdate(_id, obj, { new: true });
+      .findByIdAndUpdate(_id, obj);
     
     return document;
   }
