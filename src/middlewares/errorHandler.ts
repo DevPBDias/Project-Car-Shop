@@ -21,7 +21,7 @@ const errorHandler: ErrorRequestHandler = (
     return res.status(httpStatus).json({ error });
   }
 
-  console.error(err);
+  // console.error(err);
   return res.status(500).end();
 };
 
